@@ -26,19 +26,14 @@
 #include <QtWebEngineWidgets/QWebEngineSettings>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
-#if QTWEBENGINECORE_VERSION >= 0x050B00
 	m_inspectorView(new QWebEngineView(this)),
-#endif
 	m_ui(new Ui::MainWindow)
 {
 	m_ui->setupUi(this);
 	m_ui->webView->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
-
-#if QTWEBENGINECORE_VERSION >= 0x050B00
 	m_ui->webView->page()->setDevToolsPage(m_inspectorView->page());
 
 	m_ui->splitter->addWidget(m_inspectorView);
-#endif
 
 	const QStringList arguments(QCoreApplication::arguments());
 
@@ -71,9 +66,7 @@ void MainWindow::cloneHistory()
 
 	m_ui->webView->setPage(page);
 
-#if QTWEBENGINECORE_VERSION >= 0x050B00
 	page->setDevToolsPage(m_inspectorView->page());
-#endif
 
 	stream.device()->reset();
 	stream >> *(page->history());

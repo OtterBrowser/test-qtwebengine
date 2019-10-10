@@ -21,7 +21,6 @@
 #define MAINWINDOW_H
 
 #include <QtCore/QQueue>
-#include <QtWebEngineCore/QtWebEngineCoreVersion>
 #include <QtWebEngineWidgets/QWebEnginePage>
 #include <QtWebEngineWidgets/QWebEngineView>
 #include <QtWidgets/QMainWindow>
@@ -48,9 +47,7 @@ protected slots:
 	void setZoom(int zoom);
 
 private:
-#if QTWEBENGINECORE_VERSION >= 0x050B00
 	QWebEngineView *m_inspectorView;
-#endif
 	QQueue<QPair<QUrl, QWebEnginePage::Feature> > m_featureRequests;
 	Ui::MainWindow *m_ui;
 };

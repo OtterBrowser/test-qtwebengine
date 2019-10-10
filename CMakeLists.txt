@@ -6,7 +6,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD 11)
 
-find_package(Qt5 5.6.0 REQUIRED COMPONENTS Core Gui WebEngineWidgets Widgets)
+find_package(Qt5 5.12.0 REQUIRED COMPONENTS Core Gui WebEngineWidgets Widgets)
 
 set(testqtwebengine_src
 	main.cpp
